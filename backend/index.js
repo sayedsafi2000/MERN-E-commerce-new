@@ -156,7 +156,7 @@ app.post("/signup", async (req, res) => {
 
     let check = await Users.findOne({ email: req.body.email });
     if (check) {
-        return res.status(400).json({ success: false, error: "Esisting user found with same user email" })
+        return res.status(400).json({ success: false, errors: "Esisting user found with same user email" })
     }
     let cart = {};
     for (let i = 0; i < 300; i++) {
@@ -226,7 +226,7 @@ app.get("/popularinwomen",async(req,res)=>{
 
 //Creating endpoint for cart data
 app.post("/addtocart",async(req,res)=>{
-    console.log(req.body)
+    console.log(req.body);
 })
 /////////////////////////////////////////////////////
 app.listen(port, (error) => {
